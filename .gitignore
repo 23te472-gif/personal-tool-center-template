@@ -1,0 +1,14 @@
+.venv/
+node_modules/
+__pycache__/
+*.pyc
+**/logs/
+**/data/*
+!**/data/.gitkeep
+**/backups/
+**/打包文件/
+*.exe
+*.obj
+*.res
+settings.ini
+ui_settings.json

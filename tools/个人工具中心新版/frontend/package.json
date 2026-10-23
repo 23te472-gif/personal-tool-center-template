@@ -1,0 +1,24 @@
+{
+  "name": "personal-tool-center-frontend",
+  "version": "2.0.0",
+  "private": true,
+  "type": "module",
+  "description": "个人工具中心 2.0 本地桌面前端（pywebview + React）",
+  "scripts": {
+    "build": "node scripts/build.mjs",
+    "test": "node --test --test-isolation=none \"test/*.test.js\"",
+    "check": "node --test --test-isolation=none \"test/*.test.js\" && node scripts/build.mjs",
+    "serve": "node scripts/serve.mjs"
+  },
+  "dependencies": {
+    "lucide-react": "^1.61.0",
+    "react": "^19.3.1",
+    "react-dom": "^19.3.1"
+  },
+  "devDependencies": {
+    "esbuild": "^0.28.2"
+  },
+  "engines": {
+    "node": ">=22.8"
+  }
+}

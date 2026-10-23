@@ -1,0 +1,210 @@
+{
+  "app": {
+    "name": "个人工具中心",
+    "version": "2.0.0-test",
+    "platform": "Windows"
+  },
+  "settings": {
+    "theme": "light",
+    "font_scale": 1
+  },
+  "tools": [
+    {
+      "id": "games",
+      "name": "游戏管家",
+      "description": "管理游戏资料、收藏、别名与修改器",
+      "category": "game",
+      "status": "idle",
+      "message": ""
+    },
+    {
+      "id": "delivery",
+      "name": "文件打包",
+      "description": "选择文件并打包为本地 ZIP",
+      "category": "work",
+      "status": "idle",
+      "message": ""
+    },
+    {
+      "id": "town",
+      "name": "小镇",
+      "description": "打开本地小镇快捷入口",
+      "category": "fun",
+      "status": "idle",
+      "message": ""
+    },
+    {
+      "id": "focus",
+      "name": "专注小屋",
+      "description": "打开专注小屋",
+      "category": "fun",
+      "status": "running",
+      "message": "已打开"
+    },
+    {
+      "id": "icons",
+      "name": "图标换装台",
+      "description": "桌面图标换装工作台",
+      "category": "system",
+      "status": "idle",
+      "message": ""
+    },
+    {
+      "id": "status",
+      "name": "状态卡片",
+      "description": "C++ 快捷启动器与状态卡片",
+      "category": "system",
+      "status": "idle",
+      "message": ""
+    },
+    {
+      "id": "legacy",
+      "name": "旧版中心",
+      "description": "保留的旧版个人工具中心",
+      "category": "system",
+      "status": "idle",
+      "message": ""
+    }
+  ],
+  "games": [
+    {
+      "id": "game-stardew",
+      "name": "星露谷物语",
+      "english_name": "Stardew Valley",
+      "aliases": ["星露谷", "SDV"],
+      "favorite": true,
+      "notes": "农场经营游戏，测试备注。",
+      "steam_appid": "413150",
+      "steam_install": "C:\\Fixture\\Steam\\Stardew Valley",
+      "save_dir": "C:\\Fixture\\Saves\\Stardew",
+      "tool_count": 2,
+      "tools": [
+        {
+          "name": "测试修改器 A",
+          "path": "C:\\Fixture\\Trainers\\stardew-a.exe",
+          "exists": true
+        },
+        {
+          "name": "测试修改器 B",
+          "path": "C:\\Fixture\\Trainers\\stardew-b.exe",
+          "exists": false
+        }
+      ],
+      "last_used": "2026-10-20 21:15"
+    },
+    {
+      "id": "game-hades",
+      "name": "哈迪斯",
+      "english_name": "Hades",
+      "aliases": ["Hades", "黑帝斯"],
+      "favorite": true,
+      "notes": "",
+      "steam_appid": "1145360",
+      "steam_install": "",
+      "save_dir": "",
+      "tool_count": 0,
+      "tools": [],
+      "last_used": "2026-10-21 09:00"
+    },
+    {
+      "id": "game-elden",
+      "name": "艾尔登法环",
+      "english_name": "Elden Ring",
+      "aliases": ["老头环", "ER"],
+      "favorite": false,
+      "notes": "开放世界动作角色扮演游戏。",
+      "steam_appid": "1245620",
+      "steam_install": "C:\\Fixture\\Steam\\Elden Ring",
+      "save_dir": "",
+      "tool_count": 1,
+      "tools": [
+        {
+          "name": "测试修改器",
+          "path": "C:\\Fixture\\Trainers\\elden.exe",
+          "exists": true
+        }
+      ],
+      "last_used": ""
+    },
+    {
+      "id": "game-local",
+      "name": "本地演示游戏",
+      "english_name": "Local Demo",
+      "aliases": ["演示", "Demo"],
+      "favorite": false,
+      "notes": "未关联 Steam 的测试条目。",
+      "steam_appid": "",
+      "steam_install": "",
+      "save_dir": "C:\\Fixture\\Saves\\Demo",
+      "tool_count": 0,
+      "tools": [],
+      "last_used": ""
+    }
+  ],
+  "materials": {
+    "thesis": {
+      "id": "thesis",
+      "title": "论文资料",
+      "path": "C:\\Fixture\\Thesis\\thesis.pdf",
+      "name": "thesis.pdf",
+      "exists": true,
+      "is_dir": false,
+      "modified": "2026-10-19 10:30"
+    },
+    "presentation": {
+      "id": "presentation",
+      "title": "演示文稿",
+      "path": "C:\\Fixture\\Slides",
+      "name": "Slides",
+      "exists": true,
+      "is_dir": true,
+      "modified": "2026-10-20 16:20"
+    },
+    "charts": {
+      "id": "charts",
+      "title": "图表资料",
+      "path": "",
+      "name": "",
+      "exists": false,
+      "is_dir": false,
+      "modified": ""
+    }
+  },
+  "wheel": {
+    "entries": [
+      { "id": "wheel-stardew", "name": "星露谷物语", "appid": "413150", "enabled": true },
+      { "id": "wheel-hades", "name": "哈迪斯", "appid": "1145360", "enabled": true },
+      { "id": "wheel-elden", "name": "艾尔登法环", "appid": "1245620", "enabled": true },
+      { "id": "wheel-custom", "name": "随便走走", "appid": "", "enabled": false }
+    ],
+    "recent": ["哈迪斯", "星露谷物语"],
+    "exclude_recent": true,
+    "challenge": "只能使用初始装备"
+  },
+  "jobs": [
+    {
+      "id": "job-completed-test",
+      "status": "completed",
+      "message": "打包完成",
+      "progress": 100,
+      "result_path": "C:\\Fixture\\Output\\delivery.zip",
+      "error": ""
+    }
+  ],
+  "recent": [
+    { "id": "game-stardew", "name": "星露谷物语", "time": "2026-10-21T20:00:00+08:00" },
+    { "id": "game-hades", "name": "哈迪斯", "time": "2026-10-20T19:00:00+08:00" }
+  ],
+  "pack": {
+    "files": [
+      {
+        "path": "C:\\Fixture\\Docs\\notes.txt",
+        "name": "notes.txt",
+        "size": 2048,
+        "exists": true
+      }
+    ],
+    "output_dir": "C:\\Fixture\\Output"
+  },
+  "warnings": ["这是独立测试 fixture 的提醒，不来自生产界面。"]
+}

@@ -1,0 +1,24 @@
+{
+  "name": "town-focus-frontend",
+  "version": "2.0.0",
+  "private": true,
+  "type": "module",
+  "description": "宝可梦小镇与专注 · 本地 React 前端",
+  "scripts": {
+    "build": "node scripts/build.mjs",
+    "build:dev": "node scripts/build.mjs --dev",
+    "test": "node --test --test-isolation=none \"test/*.test.js\"",
+    "check": "node --test --test-isolation=none \"test/*.test.js\" && node scripts/build.mjs"
+  },
+  "dependencies": {
+    "lucide-react": "^1.61.0",
+    "react": "^19.3.1",
+    "react-dom": "^19.3.1"
+  },
+  "devDependencies": {
+    "esbuild": "^0.28.2"
+  },
+  "engines": {
+    "node": ">=22.8"
+  }
+}
