@@ -14,6 +14,7 @@ import {
 import { MATERIAL_LABELS, TOOL_CATEGORY_LABELS } from '../lib/search.js';
 import { formatNumber, formatRecentTime, truncateMiddle } from '../lib/format.js';
 import { isActiveJob } from '../lib/jobs.js';
+import { resolveRecent } from '../lib/recent.js';
 import { useToast } from '../components/Toasts.jsx';
 import {
   Button,
@@ -38,6 +39,7 @@ export function Overview({
   onNavigate,
   onOpenGame,
   onPackMaterialJob,
+  onAfterLaunch,
   call,
   updateMaterials,
   focusToolId,
@@ -54,13 +56,12 @@ export function Overview({
   const games = data.games || [];
   const favoriteGames = games.filter((game) => game.favorite);
   const favorites = favoriteGames.slice(0, 4);
-  const recent = (data.recent || []).slice(0, 5);
   const materials = data.materials || {};
   const activeJobs = jobs.filter(isActiveJob);
   const failedJobs = jobs.filter((job) => job.status === 'failed').slice(-1);
   const warnings = data.warnings || [];
-  const readyMaterials = MATERIAL_IDS.filter((id) => materialIsReady(materials[id]));
-  const tools = data.tools || [];
+  const readyMaterials = ['thesis', 'presentation'].filter((id) => materialIsReady(materials[id]));
+  const tools = (data.tools || []).filter((tool) => !['games', 'delivery'].includes(tool.id));
 
   useEffect(() => {
     if (!focusToolId) return undefined;
@@ -81,23 +82,9 @@ export function Overview({
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [focusToolId]);
 
-  const updateRecentFromGames = useMemo(() => {
-    const byId = new Map(games.map((game) => [String(game.id), game]));
-    return recent.map((entry) => ({
-      ...entry,
-      game: byId.get(String(entry.id)) || null,
-    }));
-  }, [games, recent]);
+  const recentEntries = useMemo(() => (data.recent || []).slice(0, 5).map(entry => resolveRecent(entry, data)), [data.recent, games, tools]);
 
   async function handleToolAction(tool) {
-    if (tool.id === 'games') {
-      onNavigate('games');
-      return;
-    }
-    if (tool.id === 'delivery') {
-      onNavigate('pack');
-      return;
-    }
     setPendingTool(tool.id);
     const result = await call('launch_tool', { id: tool.id });
     setPendingTool(null);
@@ -106,6 +93,11 @@ export function Overview({
       return;
     }
     const action = result.data && result.data.action;
+    onAfterLaunch?.();
+    if (action === 'internal' && ['games', 'pack'].includes(result.data.page)) {
+      onNavigate(result.data.page);
+      return;
+    }
     const titles = {
       started: '已请求启动',
       focused: '已切换到已打开的窗口',
@@ -203,23 +195,26 @@ export function Overview({
           <div className="eyebrow eyebrow--light">
             <Sparkles size={14} aria-hidden="true" /> 本地工作台
           </div>
-          <h1 id="overview-hero-title">把常用工具，收进一个清爽的入口</h1>
+          <h1 id="overview-hero-title">常用工具，随手打开</h1>
           <p>
-            工具、游戏修改器、论文资料与打包任务都在本机完成。这里展示本机资料，
-            不会自动启动任何程序，也不会把文件上传到网络。
+            管理游戏与修改器、快速打包文件，或打开独立工具。
           </p>
           <div className="hero-card__actions">
             <Button
               variant="primary"
               icon={Gamepad2}
-              onClick={() => onNavigate('games')}
+              loading={pendingTool === 'games'}
+              disabled={Boolean(pendingTool)}
+              onClick={() => handleToolAction({ id: 'games' })}
             >
               打开游戏管家
             </Button>
             <Button
               variant="soft"
               icon={Package}
-              onClick={() => onNavigate('pack')}
+              loading={pendingTool === 'delivery'}
+              disabled={Boolean(pendingTool)}
+              onClick={() => handleToolAction({ id: 'delivery' })}
             >
               开始文件打包
             </Button>
@@ -262,8 +257,8 @@ export function Overview({
       <section aria-labelledby="overview-tools-title">
         <SectionHeader
           id="overview-tools-title"
-          title="工具入口"
-          description="常用工具与旧版入口。小镇与专注、换装台和状态卡片都按需启动。"
+          title="独立工具"
+          description="Agent 工作台、小镇与专注、换装台和状态卡片都按需启动。"
           action={
             <span className="muted small">
               共 {tools.length} 个工具
@@ -273,7 +268,6 @@ export function Overview({
         {tools.length ? (
           <div className="tool-grid">
             {tools.map((tool) => {
-              const isInternal = tool.id === 'games' || tool.id === 'delivery';
               const status = tool.status || 'idle';
               return (
                 <article
@@ -302,12 +296,14 @@ export function Overview({
                   <div className="tool-card__footer">
                     <Button
                       size="sm"
-                      variant={isInternal ? 'secondary' : 'soft'}
+                      variant="soft"
                       loading={pendingTool === tool.id}
+                      disabled={tool.available === false || Boolean(pendingTool)}
+                      title={tool.available === false ? tool.message : '启动'+tool.name}
                       onClick={() => handleToolAction(tool)}
-                      icon={isInternal ? ArrowRight : Play}
+                      icon={Play}
                     >
-                      {isInternal ? '打开新版' : '启动'}
+                      启动
                     </Button>
                   </div>
                 </article>
@@ -451,22 +447,24 @@ export function Overview({
           <SectionHeader
             id="overview-recent-title"
             title="最近使用"
-            description="最近打开过的游戏会出现在这里"
+            description="继续使用最近的工具、游戏或打包页面"
           />
-          {updateRecentFromGames.length ? (
+          {recentEntries.length ? (
             <ol className="recent-list">
-              {updateRecentFromGames.map((entry, index) => (
+              {recentEntries.map((entry, index) => (
                 <li key={`${entry.id}-${index}`}>
                   <button
                     type="button"
                     className="recent-item"
-                    onClick={() => onOpenGame(entry.id)}
+                    disabled={entry.disabled || Boolean(pendingTool)}
+                    title={entry.disabled ? '条目已移除或入口文件不可用' : '继续使用'+entry.name}
+                    onClick={() => {if(entry.kind==='game')onOpenGame(entry.id);else if(entry.kind==='tool')handleToolAction(entry.tool);else if(entry.kind==='page')onNavigate(entry.page);}}
                   >
                     <span className="recent-item__index">{String(index + 1).padStart(2, '0')}</span>
                     <span className="recent-item__body">
-                      <strong>{entry.name || (entry.game && entry.game.name) || '游戏'}</strong>
+                      <strong>{entry.name}</strong>
                       <small>
-                        <Clock size={12} aria-hidden="true" /> {formatRecentTime(entry.time) || '时间未知'}
+                        <Clock size={12} aria-hidden="true" /> {entry.disabled?'条目不可用 · ':entry.kind==='game'?'游戏 · ':entry.kind==='tool'?'工具 · ':'打包 · '}{formatRecentTime(entry.time) || '时间未知'}
                       </small>
                     </span>
                     <ArrowRight size={15} aria-hidden="true" />
@@ -479,7 +477,7 @@ export function Overview({
               compact
               icon={Clock}
               title="暂无最近使用记录"
-              description="通过新版启动游戏或修改器后，这里会显示本地最近记录。"
+              description="启动工具、游戏或完成打包后，可从这里继续。"
             />
           )}
         </section>

@@ -180,10 +180,12 @@ export function useToolCenter() {
   useEffect(() => {
     mountedRef.current = true;
     let disposed = false;
+    let bridgeProbe = null;
 
     const attempt = () => {
       if (disposed || hasTriedRef.current || !bridge.isAvailable()) return;
       hasTriedRef.current = true;
+      if (bridgeProbe) window.clearInterval(bridgeProbe);
       load({});
     };
 
@@ -193,7 +195,7 @@ export function useToolCenter() {
 
     window.addEventListener('pywebviewready', onReady);
     const initialTimer = window.setTimeout(attempt, 0);
-    const bridgeProbe = window.setInterval(attempt, 900);
+    bridgeProbe = window.setInterval(attempt, 900);
 
     return () => {
       disposed = true;

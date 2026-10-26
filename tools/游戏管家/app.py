@@ -314,4 +314,5 @@ def main():
         print('游戏管家隔离启动检查通过')
     else:App(root,Path(__file__).resolve().parent); root.mainloop()
 
-if __name__=='__main__':main()
+if __name__=='__main__':
+    raise SystemExit('旧窗口入口已停用，请运行根目录 start.cmd。')

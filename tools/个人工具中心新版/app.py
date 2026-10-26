@@ -4,7 +4,13 @@ from logging.handlers import RotatingFileHandler
 import argparse,ctypes,json,logging,os,sys,tempfile,threading,time,traceback
 
 BASE=Path(__file__).resolve().parent
-sys.path.insert(0,str(BASE/'vendor'))
+sys.dont_write_bytecode=True
+if '--check' in sys.argv:
+    import runpy
+    runpy.run_path(str(BASE.parents[1]/'check.py'),run_name='__main__')
+    raise SystemExit(0)
+
+sys.dont_write_bytecode=True
 
 def configure_logs(base):
     folder=Path(base)/'logs';folder.mkdir(parents=True,exist_ok=True)
@@ -60,7 +66,7 @@ def main():
             except Exception as exc:output.write_text(json.dumps(dict(error=str(exc))),encoding='utf-8')
             finally:native.destroy()
         profile=(Path(temp.name)/'webview') if args.ui_smoke else BASE/'data/webview'
-        try:webview.start(smoke if args.ui_smoke else None,gui='edgechromium',debug=False,private_mode=True,storage_path=str(profile),icon=None,localization={'global.quitConfirmation':'是否关闭工具中心？'})
+        try:webview.start(smoke if args.ui_smoke else None,gui='edgechromium',debug=False,private_mode=True,storage_path=str(profile),localization={'global.quitConfirmation':'是否关闭工具中心？'})
         finally:bridge._shutdown()
     finally:
         session.close()
@@ -71,5 +77,5 @@ if __name__=='__main__':
     except Exception:
         logging.getLogger('toolcenter').exception('Startup failed')
         if sys.stderr is not None:traceback.print_exc()
-        if '--ui-smoke' not in sys.argv:ctypes.windll.user32.MessageBoxW(0,'工具中心启动未完成，请查看新版目录 logs/app.log。旧版入口仍可使用。','启动失败',0x10)
+        if '--ui-smoke' not in sys.argv:ctypes.windll.user32.MessageBoxW(0,'工具中心启动未完成，请查看新版目录 logs/app.log。请确认已安装依赖并完成前端构建。','启动失败',0x10)
         raise SystemExit(1)

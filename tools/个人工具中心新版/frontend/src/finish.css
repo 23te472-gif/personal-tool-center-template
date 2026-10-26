@@ -1,0 +1,23 @@
+/* A tighter overview, with detailed diagnostics available on demand. */
+.hero-card{min-height:205px;padding:25px 28px;grid-template-columns:minmax(0,1fr) 220px}
+.hero-card h1{font-size:clamp(1.5rem,2.3vw,1.95rem)}
+.hero-card__actions{margin-top:16px}
+.hero-stats{margin-top:16px}
+.tool-card{gap:10px;padding:16px}
+.tool-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+@media(min-width:1440px){.tool-grid{grid-template-columns:repeat(4,minmax(0,1fr))}}
+.tool-card__body h3{overflow-wrap:anywhere}
+.settings-advanced>summary{cursor:pointer;list-style-position:inside;font-weight:600;color:var(--text);padding:2px 0}
+.settings-advanced>summary small{display:block;font-size:.75rem;font-weight:400;color:var(--text-muted);margin:5px 0 0 18px}
+.settings-advanced[open]>summary{margin-bottom:18px}
+.settings-advanced>summary:focus-visible{outline:2px solid var(--mint);outline-offset:5px;border-radius:4px}
+.modal__header,.modal__footer{flex-shrink:0}
+.modal__body{min-height:0;overscroll-behavior:contain;scrollbar-gutter:stable}
+.modal__header>div{min-width:0}
+.modal__header h2{overflow-wrap:anywhere}
+.modal__header>button{flex-shrink:0}
+.modal__footer{flex-wrap:wrap}
+.pack-side>.panel{min-width:0}
+@media(max-width:860px){.pack-side{grid-template-columns:minmax(0,1fr)}}
+@media(max-width:1020px){.hero-card{grid-template-columns:minmax(0,1fr) 160px}}
+@media(max-width:640px){.hero-card{grid-template-columns:1fr;min-height:0;padding:22px}.hero-card__art{display:none}.tool-grid{grid-template-columns:1fr}.settings-advanced>summary small{line-height:1.65}}

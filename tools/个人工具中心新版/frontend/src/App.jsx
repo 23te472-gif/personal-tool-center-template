@@ -180,8 +180,6 @@ export default function App() {
         settingsBusy={center.settingsBusy}
         saveSettings={center.saveSettings}
         call={center.call}
-        refresh={center.refresh}
-        refreshing={center.refreshing}
         activeJobsCount={center.activeJobs.length}
         connection={center.connection}
         lastUpdated={center.lastUpdated}
@@ -200,6 +198,7 @@ export default function App() {
           setPage('games');
         }}
         onPackMaterialJob={center.addOrUpdateJob}
+        onAfterLaunch={handleAfterLaunch}
         call={center.call}
         updateMaterials={center.updateMaterials}
         focusToolId={focusToolId}
@@ -225,6 +224,7 @@ export default function App() {
         />
         <div className="app-main">
           <TopBar
+            call={center.call}
             data={center.data}
             onSearchSelect={handleSearchSelect}
             onOpenMenu={() => setMobileNavOpen(true)}

@@ -142,4 +142,5 @@ def main():
         print('Tool center isolated smoke test passed; no tools launched')
     else:ToolCenter(root,Path(__file__).resolve().parent);root.mainloop()
 
-if __name__=='__main__':main()
+if __name__=='__main__':
+    raise SystemExit('旧窗口入口已停用，请运行根目录 start.cmd。')

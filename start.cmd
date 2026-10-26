@@ -1,10 +1,13 @@
 @echo off
+chcp 65001 >nul
+setlocal
 cd /d "%~dp0"
-if exist ".venv\Scripts\python.exe" (
-  ".venv\Scripts\python.exe" "tools\个人工具中心新版\app.py"
-) else (
-  echo Please run setup.cmd first to create the supported local Python environment.
-  pause
-  exit /b 1
+if not exist ".venv\Scripts\python.exe" (
+ echo Run setup.cmd first.
+ pause
+ exit /b 1
 )
-if errorlevel 1 pause
+".venv\Scripts\python.exe" -B "tools\个人工具中心新版\app.py" %*
+set "APP_EXIT=%errorlevel%"
+if not "%APP_EXIT%"=="0" pause
+exit /b %APP_EXIT%

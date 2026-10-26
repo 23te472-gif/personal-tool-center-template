@@ -276,7 +276,7 @@ int WINAPI wWinMain(HINSTANCE instance,HINSTANCE,LPWSTR,int){
     interval=(savedInterval==2000 || savedInterval==5000)?savedInterval:1000;
     GdiplusStartupInput input;ULONG_PTR token;if(GdiplusStartup(&token,&input,nullptr)!=Ok){CloseHandle(mutex);return 4;}
     WNDCLASSEXW wc{sizeof(wc)};wc.lpfnWndProc=procedure;wc.hInstance=instance;wc.lpszClassName=CLASSNAME;
-    wc.hCursor=LoadCursorW(nullptr,IDC_ARROW);wc.hIcon=LoadIconW(nullptr,IDI_APPLICATION);wc.hIconSm=wc.hIcon;RegisterClassExW(&wc);
+    wc.hCursor=LoadCursorW(nullptr,IDC_ARROW);wc.hIcon=LoadIconW(instance,MAKEINTRESOURCEW(1));wc.hIconSm=wc.hIcon;RegisterClassExW(&wc);
     scale=GetDpiForSystem()/96.0f;RECT area;SystemParametersInfoW(SPI_GETWORKAREA,0,&area,0);
     int x=GetPrivateProfileIntW(L"card",L"x",area.right-px(402),iniPath.c_str());int y=GetPrivateProfileIntW(L"card",L"y",area.top+px(28),iniPath.c_str());
     HWND hwnd=CreateWindowExW(WS_EX_APPWINDOW,CLASSNAME,TITLE,WS_POPUP|WS_MINIMIZEBOX,x,y,px(380),px(float(height())),nullptr,nullptr,instance,nullptr);

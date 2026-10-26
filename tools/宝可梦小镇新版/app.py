@@ -4,8 +4,7 @@ from logging.handlers import RotatingFileHandler
 import argparse,ctypes,json,logging,sys,tempfile,threading,time,traceback
 
 BASE=Path(__file__).resolve().parent
-VENDOR=BASE.parent/'个人工具中心新版/vendor'
-sys.path.insert(0,str(VENDOR))
+sys.dont_write_bytecode=True
 
 def main():
     parser=argparse.ArgumentParser();parser.add_argument('--smoke-test',action='store_true');parser.add_argument('--smoke-result');args=parser.parse_args()
@@ -63,7 +62,7 @@ def main():
             finally:native.destroy()
         profile=data_base/'data/webview'
         logging.info('Starting WebView2')
-        webview.start(smoke if args.smoke_test else None,gui='edgechromium',debug=False,private_mode=False,storage_path=str(profile),icon=None)
+        webview.start(smoke if args.smoke_test else None,gui='edgechromium',debug=False,private_mode=False,storage_path=str(profile))
     finally:
         instance.close()
         if temporary:

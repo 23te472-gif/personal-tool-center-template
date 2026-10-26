@@ -53,7 +53,7 @@ class ShortcutService:
     def __init__(self,base,backend=None,asset_root=None):
         self.base=Path(base).resolve();self.backend=backend or ShortcutBackend(base);self.root=self.base/'data/icon_studio';self.path=self.root/'records.json'
         self.lock=threading.RLock();self._dirs=None
-        self.asset_root=Path(asset_root) if asset_root else self.base/'data/icon_studio/assets'
+        self.asset_root=Path(asset_root) if asset_root else self.root/'assets'
     def records(self):return load_json(self.path,{'records':{}},validate_records)
     def save(self,data):save_json(self.path,data,{'records':{}},validate_records)
     def dirs(self):

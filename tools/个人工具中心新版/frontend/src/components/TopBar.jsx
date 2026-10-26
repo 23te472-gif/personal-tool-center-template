@@ -14,6 +14,7 @@ import {
 import { searchAll, SEARCH_TYPE_LABELS } from '../lib/search.js';
 import { formatDateTime } from '../lib/format.js';
 import { Kbd, Spinner } from './ui.jsx';
+import { PetButton } from './PetButton.jsx';
 
 const RESULT_ICONS = {
   tool: Wrench,
@@ -37,6 +38,7 @@ export function GlobalSearch({ data, onSelect }) {
     const onKeyDown = (event) => {
       const key = String(event.key || '').toLowerCase();
       if ((event.ctrlKey || event.metaKey) && key === 'k') {
+        if (document.querySelector('[role="dialog"][aria-modal="true"]')) return;
         event.preventDefault();
         const input = inputRef.current;
         if (!input) return;
@@ -220,6 +222,7 @@ export function TopBar({
   refreshing,
   connection,
   lastUpdated,
+  call,
 }) {
   const connectionLabel =
     connection === 'ready' ? '已连接' : connection === 'error' ? '连接异常' : '连接中';
@@ -233,6 +236,7 @@ export function TopBar({
       </div>
 
       <GlobalSearch data={data} onSelect={onSearchSelect} />
+      <PetButton call={call}/>
 
       <div className="topbar__right">
         <span className={`connection-pill connection-pill--${connection}`} title="本地服务连接状态">

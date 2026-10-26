@@ -9,10 +9,7 @@ export function ToastProvider({ value, children }) {
 
 export function useToast() {
   const context = useContext(ToastContext);
-  if (!context) {
-    return { notify: () => {} };
-  }
-  return context;
+  return context?.notify || (() => {});
 }
 
 let nextToastId = 1;

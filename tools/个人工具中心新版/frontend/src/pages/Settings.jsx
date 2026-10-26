@@ -4,16 +4,12 @@ import {
   Check,
   FileText,
   FolderOpen,
-  Info,
-  Monitor,
   Moon,
-  RefreshCw,
-  Server,
   Settings2,
   Sun,
   TriangleAlert,
 } from 'lucide-react';
-import { formatDateTime, formatRecentTime } from '../lib/format.js';
+import { formatDateTime } from '../lib/format.js';
 import { useToast } from '../components/Toasts.jsx';
 import {
   Badge,
@@ -50,15 +46,12 @@ export function SettingsPage({
   settingsBusy,
   saveSettings,
   call,
-  refresh,
-  refreshing,
   activeJobsCount,
   connection,
   lastUpdated,
 }) {
   const toast = useToast();
   const [folderPending, setFolderPending] = useState(null);
-  const [legacyPending, setLegacyPending] = useState(false);
   const [settingError, setSettingError] = useState(null);
   const app = data.app || {};
   const warnings = data.warnings || [];
@@ -98,43 +91,13 @@ export function SettingsPage({
     });
   }
 
-  async function handleOpenLegacy() {
-    setLegacyPending(true);
-    const result = await call('launch_tool', { id: 'legacy' });
-    setLegacyPending(false);
-    if (!result.ok) {
-      toast({ tone: 'error', title: '无法打开旧版', message: result.error });
-      return;
-    }
-    const action = result.data && result.data.action;
-    toast({
-      tone: action === 'pending' ? 'info' : 'success',
-      title: action === 'focused' ? '已切换到旧版窗口' : '已请求打开旧版',
-      message: (result.data && result.data.message) || '旧版启动器仍然保留，可随时回退。',
-    });
-  }
 
   return (
     <div className="page settings-page">
       <PageHeader
         eyebrow="设置"
         title="外观与本地服务"
-        description="主题与字号立即生效并保存到本地。数据、日志和旧版入口都通过本地服务打开。"
-        actions={
-          <Button
-            variant="secondary"
-            icon={RefreshCw}
-            loading={settingsBusy || refreshing}
-            onClick={async () => {
-              const result = await refresh();
-              if (result.ok) {
-                toast({ tone: 'success', title: '设置与数据已刷新' });
-              }
-            }}
-          >
-            刷新数据
-          </Button>
-        }
+        description="主题和字号自动保存；独立工具统一从概览打开。"
       />
 
       {settingError ? (
@@ -232,12 +195,8 @@ export function SettingsPage({
             </p>
           </section>
 
-          <section className="panel settings-section" aria-labelledby="settings-folders-title">
-            <SectionHeader
-              id="settings-folders-title"
-              title="本地目录"
-              description="只打开后端配置的目录，不接受任意文件路径。"
-            />
+          <details className="panel settings-section settings-advanced">
+            <summary>本地目录<small>需要时展开，查看数据、日志和打包结果</small></summary>
             <div className="folder-list">
               {FOLDER_ACTIONS.map((item) => {
                 const Icon = item.icon;
@@ -262,37 +221,14 @@ export function SettingsPage({
                 );
               })}
             </div>
-          </section>
+          </details>
 
-          <section className="panel settings-section" aria-labelledby="settings-legacy-title">
-            <SectionHeader
-              id="settings-legacy-title"
-              title="旧版入口"
-              description="新版与旧版并存。旧版只在你点击时打开。"
-            />
-            <div className="legacy-row">
-              <span className="legacy-row__icon" aria-hidden="true">
-                <Archive size={20} />
-              </span>
-              <div>
-                <strong>旧版个人工具中心</strong>
-                <p>保留原来的工具入口，便于验证或回退。不会替换或清空任何旧数据。</p>
-              </div>
-              <Button
-                variant="secondary"
-                icon={FolderOpen}
-                loading={legacyPending}
-                onClick={handleOpenLegacy}
-              >
-                打开旧版
-              </Button>
-            </div>
-          </section>
+
         </div>
 
         <aside className="settings-side">
-          <section className="panel settings-section" aria-labelledby="settings-about-title">
-            <SectionHeader id="settings-about-title" title="关于" description="版本与运行环境" />
+          <details className="panel settings-section settings-advanced">
+            <summary>版本与运行信息<small>需要排查问题时查看</small></summary>
             <dl className="info-list">
               <div>
                 <dt>软件</dt>
@@ -331,34 +267,9 @@ export function SettingsPage({
               2.0 采用全新界面，保留原有 Python / C++ 工具与数据位置。
               软件不包含上传、云同步或自动更新功能；界面资源随本地构建一起加载，不使用 CDN。
             </p>
-          </section>
+          </details>
 
-          <section className="panel settings-section" aria-labelledby="settings-diagnostics-title">
-            <SectionHeader id="settings-diagnostics-title" title="本地服务" description="必要时可重新加载数据" />
-            <div className="diagnostic-row">
-              <span className="diagnostic-row__icon" aria-hidden="true">
-                <Server size={18} />
-              </span>
-              <div>
-                <strong>{connection === 'ready' ? '本地服务已就绪' : '等待连接'}</strong>
-                <p>
-                  界面通过本地服务打开文件、工具与游戏。失败时会显示中文提示，
-                  不会把失败显示成成功。
-                </p>
-              </div>
-            </div>
-            <Button
-              variant="secondary"
-              icon={RefreshCw}
-              loading={refreshing}
-              onClick={async () => {
-                const result = await refresh();
-                if (result.ok) toast({ tone: 'success', title: '已重新载入本地数据' });
-              }}
-            >
-              重新载入数据
-            </Button>
-          </section>
+
 
           {warnings.length ? (
             <section className="panel settings-section" aria-labelledby="settings-warnings-title">
@@ -403,7 +314,7 @@ export function SettingsPage({
             <Settings2 size={18} aria-hidden="true" />
             <div>
               <strong>个人工具中心 2.0</strong>
-              <span>本地运行 · 不上传 · 保留旧版</span>
+              <span>本地运行 · 不上传 · 兼容原数据</span>
             </div>
           </div>
         </aside>

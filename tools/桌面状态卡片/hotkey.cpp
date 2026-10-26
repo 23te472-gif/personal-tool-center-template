@@ -18,7 +18,7 @@ void openCard(){
 }
 void addTray(HWND hwnd){
     icon.cbSize=sizeof(icon);icon.hWnd=hwnd;icon.uID=1;icon.uFlags=NIF_ICON|NIF_TIP|NIF_MESSAGE;
-    icon.uCallbackMessage=TRAY;icon.hIcon=LoadIconW(nullptr,IDI_APPLICATION);
+    icon.uCallbackMessage=TRAY;icon.hIcon=LoadIconW(instance,MAKEINTRESOURCEW(1));
     wcscpy_s(icon.szTip,L"桌面状态卡片 · Ctrl+Alt+F9 打开");Shell_NotifyIconW(NIM_ADD,&icon);
 }
 LRESULT CALLBACK procedure(HWND hwnd,UINT message,WPARAM w,LPARAM l){

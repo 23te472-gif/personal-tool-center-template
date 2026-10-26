@@ -15,10 +15,14 @@ import materials,quickpack,playful_store,wheel_model,wheel_steam
 import library as game_library
 import trainers
 from local_icons import SteamIcons
-from integrated_windows import IntegratedWindows
+from integrated_windows import IntegratedWindows,agent_entry
 
 MATERIAL_NAMES={'thesis':'论文','presentation':'汇报 PPT','charts':'图表与数据'}
 CHALLENGES=('先玩20分钟，再决定是否继续。','试试一个平时少用的角色或玩法。','这次以轻松体验为主。','给自己设一个小目标，完成就休息。')
+INTERNAL_TOOLS={
+    'games':dict(id='games',name='游戏管家',description='在新版页面查找游戏、管理修改器与收藏。',category='game',page='games',launch_mode='internal'),
+    'delivery':dict(id='delivery',name='快速文件打包',description='在新版页面选择文件、生成 ZIP 并查看打包进度。',category='work',page='pack',launch_mode='internal'),
+}
 
 class Bridge:
     def __init__(self,base=SOURCE,legacy_root=None,opener=None):
@@ -29,11 +33,19 @@ class Bridge:
         self._jobs={};self._pool=ThreadPoolExecutor(max_workers=1,thread_name_prefix='tool-center-pack')
         self._allowed_files=set();self._allowed_outputs={str((self._base/'打包文件').resolve())};self._window=None
         self._icons=SteamIcons()
+        from pet_launcher import PetLauncher
+        self._pet=PetLauncher(self._base/'data/pet_launcher.json',self._opener)
         self._manager=old_center.ToolManager(self._old,self._tool_specs(),windows=IntegratedWindows(self._root))
         self._actions={name:getattr(self,'_'+name) for name in (
             'bootstrap','launch_tool','game_list','game_favorite','game_save','game_add','game_add_tool','game_open',
             'materials_choose','materials_open','pick_files','pick_output','pack_previous','pack_start','pack_materials',
-            'job_status','job_open','wheel_get','wheel_save','wheel_add','wheel_import','wheel_draw','steam_open','settings_save','open_folder')}
+            'job_status','job_open','wheel_get','wheel_save','wheel_add','wheel_import','wheel_draw','steam_open','settings_save','open_folder','pet_launch','pet_choose')}
+
+    def _pet_launch(self,p):return self._pet.launch()
+    def _pet_choose(self,p):
+        chosen=self._picker(file_types=('桌宠入口 (*.lnk;*.exe)',))
+        if not chosen:return dict(cancelled=True)
+        return self._pet.configure(chosen if isinstance(chosen,str) else chosen[0])
 
     def call(self,action,payload=None):
         try:
@@ -50,8 +62,8 @@ class Bridge:
 
     def _tool_specs(self):
         Tool=old_center.Tool
-        result=[Tool('town','小镇与专注','布置家园、陪伴伙伴，在同一座小镇里安静专注。',self._root/'宝可梦小镇新版/app.py','宝可梦小镇与专注','#66845d','镇') if item.id=='town' else item for item in old_center.tools_for(self._old)]
-        result.extend((Tool('legacy','旧版工具中心','需要时回到原来的界面',self._old/'app.py','个人工具中心','#63798e','旧'),
+        result=[Tool('town','小镇与专注','布置家园、陪伴伙伴，在同一座小镇里安静专注。',self._root/'宝可梦小镇新版/app.py','宝可梦小镇与专注','#66845d','镇') if item.id=='town' else item for item in old_center.tools_for(self._old) if item.id not in INTERNAL_TOOLS]
+        result.extend((Tool('agent','Agent 工作台','双模型协作与实验群聊，管理性格风格和长期记忆。',agent_entry(self._root),'Agent 工作台','#397c72','协'),
             Tool('icons','图标换装台','预览宝可梦图标与还原桌面',self._base/'icons.py','桌面宝可梦换装台','#6c56a5','图')))
         return result
 
@@ -93,18 +105,24 @@ class Bridge:
             except (OSError,ValueError,TypeError) as exc:warnings.append(str(exc));return deepcopy(default)
         state=safe(self._state,store.DEFAULT);games=safe(lambda:self._game_list({})['games'],[])
         material=safe(self._material_values,{k:dict(id=k,title=t,path='',name='',exists=False,is_dir=k=='charts',modified='') for k,t in MATERIAL_NAMES.items()})
-        wheel=safe(self._wheel_value,wheel_model.default_wheel());statuses=self._manager.poll();tools=[]
-        categories={'games':'game','delivery':'work','town':'fun','status':'system','legacy':'system','focus':'fun','icons':'system'}
+        wheel=safe(self._wheel_value,wheel_model.default_wheel());statuses=self._manager.poll()
+        tools=[dict(spec,status='idle',message='点击启动进入新版页面',available=True) for spec in INTERNAL_TOOLS.values()]
+        categories={'games':'game','delivery':'work','town':'fun','status':'system','agent':'work','focus':'fun','icons':'system'}
         for spec in self._tool_specs():
             status=statuses.get(spec.id,{});state_name=status.get('state','idle')
-            tools.append(dict(id=spec.id,name=spec.name,description=spec.description,category=categories[spec.id],status='idle' if state_name=='exited' else state_name,message=status.get('message','尚未打开')))
+            available=spec.script.is_file() or state_name in ('running','starting')
+            tools.append(dict(id=spec.id,name=spec.name,description=spec.description,category=categories[spec.id],available=available,status=('idle' if state_name=='exited' else state_name) if available else 'failed',message=status.get('message','尚未打开') if available else '入口文件已移动或不存在，请检查工具安装位置。'))
         files=[self._file(path) for path in state['pack_files']];self._allowed_files.update(str(Path(f['path']).resolve()) for f in files if f['exists'])
         output=state['output_dir'] or str((self._base/'打包文件').resolve());self._allowed_outputs.add(str(Path(output).resolve()))
         with self._lock:jobs=deepcopy(list(self._jobs.values()))
         return dict(app=dict(name='个人工具中心',version='2.0.0',platform='Windows'),settings={k:state[k] for k in ('theme','font_scale')},tools=tools,games=games,materials=material,wheel=wheel,jobs=jobs,recent=state['recent'],pack=dict(files=files,output_dir=output),warnings=warnings)
 
     def _launch_tool(self,p):
-        key=p.get('id');spec=next((s for s in self._tool_specs() if s.id==key),None)
+        key=p.get('id')
+        if isinstance(key,str) and key in INTERNAL_TOOLS:
+            spec=INTERNAL_TOOLS[key];self._record(key,spec['name'])
+            return dict(action='internal',page=spec['page'],message='已进入新版'+spec['name'])
+        spec=next((s for s in self._tool_specs() if s.id==key),None)
         if spec is None:raise ValueError('未知工具入口')
         with self._lock:result=self._manager.open(key)
         self._record(key,spec.name);return result

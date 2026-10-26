@@ -1,4 +1,5 @@
 @echo off
+chcp 65001 >nul
 where cl >nul 2>nul
 if errorlevel 1 (echo Please open an x64 Native Tools Command Prompt for Visual Studio first. & exit /b 1)
 cd /d "%~dp0"

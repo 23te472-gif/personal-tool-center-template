@@ -26,6 +26,22 @@ class BackendTests(unittest.TestCase):
         data=self.call('bootstrap');self.assertEqual(data['app']['version'],'2.0.0')
         self.assertEqual(data['games'],[]);self.assertIn('town',[t['id'] for t in data['tools']])
         self.bridge._opener.assert_not_called()
+    def test_migrated_tools_route_to_new_pages_without_spawning_legacy_windows(self):
+        self.bridge._manager.open=Mock(side_effect=AssertionError('Old window must not launch'))
+        for key,page in [('games','games'),('delivery','pack')]:
+            result=self.call('launch_tool',{'id':key})
+            self.assertEqual(result['action'],'internal');self.assertEqual(result['page'],page)
+        self.bridge._manager.open.assert_not_called()
+        self.assertNotIn('games',self.bridge._manager.tools);self.assertNotIn('delivery',self.bridge._manager.tools)
+        tools={t['id']:t for t in self.call('bootstrap')['tools']}
+        self.assertEqual(tools['games']['launch_mode'],'internal')
+        self.assertEqual(tools['delivery']['launch_mode'],'internal')
+    def test_missing_external_entry_is_explained_before_launch(self):
+        tools={t['id']:t for t in self.call('bootstrap')['tools']}
+        self.assertFalse(tools['agent']['available'])
+        self.assertEqual(tools['agent']['status'],'failed')
+        self.assertIn('入口文件',tools['agent']['message'])
+        self.assertTrue(tools['games']['available'])
     def test_corrupt_legacy_never_overwritten(self):
         path=self.old/'游戏管家/data/library.json';path.write_text('{',encoding='utf-8')
         self.assertTrue(self.call('bootstrap')['warnings'])

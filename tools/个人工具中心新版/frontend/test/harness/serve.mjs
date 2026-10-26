@@ -132,6 +132,9 @@ function harnessScript(fixture) {
             fixture.settings = { theme: payload.theme, font_scale: payload.font_scale };
             return { ok: true, data: { settings: clone(fixture.settings) } };
           case 'launch_tool':
+            if (payload.id === 'games' || payload.id === 'delivery') {
+              return { ok: true, data: { action: 'internal', page: payload.id === 'games' ? 'games' : 'pack' } };
+            }
             return { ok: true, data: { action: 'started', message: '测试夹具：已模拟工具启动请求（不启动程序）。' } };
           case 'game_save':
           case 'game_add':

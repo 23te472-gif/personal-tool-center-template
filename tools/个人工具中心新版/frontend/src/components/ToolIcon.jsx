@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import {
   AppWindow,
-  Archive,
+  Bot,
   ChartBar,
   FileText,
   Gamepad2,
@@ -20,7 +20,7 @@ const TOOL_ICONS = {
   delivery: PackageOpen,
   town: House,
   status: Monitor,
-  legacy: Archive,
+  agent: Bot,
   focus: Timer,
   icons: Palette,
 };
@@ -30,7 +30,7 @@ const TOOL_TONES = {
   delivery: 'mint',
   town: 'amber',
   status: 'slate',
-  legacy: 'violet',
+  agent: 'mint',
   focus: 'rose',
   icons: 'teal',
 };

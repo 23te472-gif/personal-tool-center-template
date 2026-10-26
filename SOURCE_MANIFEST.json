@@ -1,0 +1,929 @@
+{
+  "files": [
+    {
+      "path": ".gitignore",
+      "size": 524,
+      "sha256": "de0c5fa6097945df716923693e1269dfedb1edbc9bdbe4371b6e560578c7cbdd"
+    },
+    {
+      "path": "build-frontend.cmd",
+      "size": 334,
+      "sha256": "249b7f711e4699207b5fd84070ac3077a6b2c2f4e4d870f9c8e6ccdfa3332e43"
+    },
+    {
+      "path": "check.cmd",
+      "size": 247,
+      "sha256": "bb01dfc68bbf042503a4e710b9ee109c9209ba2e223c3248f5311b7d25411075"
+    },
+    {
+      "path": "check.py",
+      "size": 1351,
+      "sha256": "188bd1886ec36cb77731df22889642e7f46520b93c51a745bc6d2a8318b28142"
+    },
+    {
+      "path": "LICENSE",
+      "size": 1085,
+      "sha256": "00988320252a019a2d76aa8b131474815097503287fd627b28c16cd15f2f6c23"
+    },
+    {
+      "path": "licenses/esbuild-LICENSE.md",
+      "size": 1069,
+      "sha256": "b40ec5baec7bb34fa5b1c09521fa3cd52d5fad7adafed74932a2010d3612a681"
+    },
+    {
+      "path": "licenses/lucide-react-LICENSE",
+      "size": 3208,
+      "sha256": "b495047bd93a9b06913511076f504daba17d5bbeb3e0650f3bb53a4220329c57"
+    },
+    {
+      "path": "licenses/pythonnet-3.2.1.dist-info/AUTHORS.md",
+      "size": 5096,
+      "sha256": "65a13631f078bed51e9a4033dea257e57a7f23097f3003b1ce1ba1c8a9136c93"
+    },
+    {
+      "path": "licenses/pythonnet-3.2.1.dist-info/LICENSE",
+      "size": 1104,
+      "sha256": "e1dc3a6ff017a6800dc27a7220500f512b95fbcd996d38ebbbff85c693245369"
+    },
+    {
+      "path": "licenses/pywebview-6.2.1.dist-info/LICENSE",
+      "size": 1518,
+      "sha256": "4a988dd3598832cd3653de20dc33cb677d0fb53ab5551c879ca31280ae653675"
+    },
+    {
+      "path": "licenses/react-dom-LICENSE",
+      "size": 1088,
+      "sha256": "da6d3703ed11cbe42bd212c725957c98da23cbff1998c05fa4b3d976d1a58e93"
+    },
+    {
+      "path": "licenses/react-LICENSE",
+      "size": 1088,
+      "sha256": "da6d3703ed11cbe42bd212c725957c98da23cbff1998c05fa4b3d976d1a58e93"
+    },
+    {
+      "path": "licenses/scheduler-LICENSE",
+      "size": 1088,
+      "sha256": "da6d3703ed11cbe42bd212c725957c98da23cbff1998c05fa4b3d976d1a58e93"
+    },
+    {
+      "path": "NOTICE.md",
+      "size": 3237,
+      "sha256": "2dbc309f1ebd93d138495b202b726c04a35152a02ed6b0e503ec6efba61e5405"
+    },
+    {
+      "path": "README.md",
+      "size": 4407,
+      "sha256": "241c2777862b6423805c920684e63862e6e12d9b4eff5944b19e9b658190002e"
+    },
+    {
+      "path": "requirements.txt",
+      "size": 54,
+      "sha256": "829478f116e38328de3c78bfa0004bfa5738aa4ba54f4c0ee0637b0b40b34576"
+    },
+    {
+      "path": "run-tests.py",
+      "size": 528,
+      "sha256": "dc35aafaba9ae0cd9d06ec64bbb86c8eac1b05c27a283a5ac8085c68a056d2c8"
+    },
+    {
+      "path": "setup.cmd",
+      "size": 546,
+      "sha256": "39f2294d8f7e1f9fa4b72ac0a443efc0e47c836ed0841800b1e1b9fbaea6f38e"
+    },
+    {
+      "path": "start.cmd",
+      "size": 302,
+      "sha256": "977457ba9cc688d1b5dde23d33eb43a765a7b315131bfb9385faff4af8ce84fa"
+    },
+    {
+      "path": "tools/个人工具中心/app.py",
+      "size": 11951,
+      "sha256": "92cf0970e0b3a454f2c2eccc0ee9268ff6fb38b583e0cc6f073aca466e12d789"
+    },
+    {
+      "path": "tools/个人工具中心/card_images.py",
+      "size": 2525,
+      "sha256": "56e7392f2092adf673f3050716191189746c24c704e3ce4b13629733bd087f03"
+    },
+    {
+      "path": "tools/个人工具中心/center.py",
+      "size": 6720,
+      "sha256": "a18a3c00bd00545386bfbcf7d7873e104b7309812f06946374e7a9671ce31eab"
+    },
+    {
+      "path": "tools/个人工具中心/focus_model.py",
+      "size": 2904,
+      "sha256": "36643e7895c3a4fc0caff55da510a058857c52bd538a5c5776f33c8639835caa"
+    },
+    {
+      "path": "tools/个人工具中心/focus_ui.py",
+      "size": 7665,
+      "sha256": "c3fe9706e7a7929b23e195ea81069515272bc5d336f49a36f51d0acdcf2ec800"
+    },
+    {
+      "path": "tools/个人工具中心/game_icons.py",
+      "size": 1409,
+      "sha256": "a09887271b225e0a3ec9ea018ccf20abd15de60c622b35cff557e5d27f590ff4"
+    },
+    {
+      "path": "tools/个人工具中心/icon_cards.py",
+      "size": 7751,
+      "sha256": "fce5d09cb7238dd0ed7ca8fa7d51e0b438ef6ec1eef3463cbf80cf0d7d34392b"
+    },
+    {
+      "path": "tools/个人工具中心/materials.py",
+      "size": 1785,
+      "sha256": "ca5f47254c9c260788b57634cec45d05e55211cfc7128a249afd79605489ce3c"
+    },
+    {
+      "path": "tools/个人工具中心/materials_ui.py",
+      "size": 6719,
+      "sha256": "6ec0e6dbda821b4d3154238ac1ab591c935dd381755cabc50adfe1504a386f89"
+    },
+    {
+      "path": "tools/个人工具中心/playful_layout.py",
+      "size": 513,
+      "sha256": "24c003902c1aa8a32b57ea5f3537acb25261a0f286163e70fb4ff572e151f3fb"
+    },
+    {
+      "path": "tools/个人工具中心/playful_store.py",
+      "size": 1114,
+      "sha256": "14de28cf1a5c8d01618d58105c4b3b13dd13f6038fa0f0bce54eea4ccf4ae8e1"
+    },
+    {
+      "path": "tools/个人工具中心/playful_tools.py",
+      "size": 1248,
+      "sha256": "caf3add7b619871d90fb58f130ab15cde0d17fb89e338c745eb39fa739a973f9"
+    },
+    {
+      "path": "tools/个人工具中心/pokemon_assets.py",
+      "size": 629,
+      "sha256": "87cc9c6f286468db7c1866380aa8627310cd32d0daab67f278708bff7121ad8f"
+    },
+    {
+      "path": "tools/个人工具中心/quickpack.py",
+      "size": 2036,
+      "sha256": "aa6ea474981d0c7ea7d41c08dbf933b92008b07293fd2dc062fbbc528d703492"
+    },
+    {
+      "path": "tools/个人工具中心/shell_icon_check.py",
+      "size": 2208,
+      "sha256": "df22824218a0a194e4bdb7aa4d34f14f63cd0939bcc0065984f26df8360155c2"
+    },
+    {
+      "path": "tools/个人工具中心/shortcut_bridge.ps1",
+      "size": 2580,
+      "sha256": "75503bd252c262b69929732cd2531d590c7e1ba1219903aef4d7f304f58907b9"
+    },
+    {
+      "path": "tools/个人工具中心/shortcut_model.py",
+      "size": 10962,
+      "sha256": "72ddbfad8b33592a88292829abae662a004e792990c417c82c12c5d9ad8bfa01"
+    },
+    {
+      "path": "tools/个人工具中心/shortcut_ui.py",
+      "size": 10469,
+      "sha256": "02f35619c6cfd8fa1fe11923755eae94d1ed7c6653ae8123de8fcb1541bc7006"
+    },
+    {
+      "path": "tools/个人工具中心/soft_background.py",
+      "size": 3718,
+      "sha256": "86046d92b4d89f854b02ffbefaa26601caf01eb06c346ec0480ae3fe02cdfe5a"
+    },
+    {
+      "path": "tools/个人工具中心/steam_reader.py",
+      "size": 3633,
+      "sha256": "40a34314e4a70f877d84e49707418fb0f0a30401ca938edf31df2be185d8d454"
+    },
+    {
+      "path": "tools/个人工具中心/tests/test_center.py",
+      "size": 4864,
+      "sha256": "68345559a898adf34aae1d70a8aef64ff3c4de26fb59c8a05528fb62a8549dea"
+    },
+    {
+      "path": "tools/个人工具中心/tests/test_focus.py",
+      "size": 1994,
+      "sha256": "4c33b23e8e437befe21e3ea0572a9b2222214a34abc874391bdabfdd4238eaef"
+    },
+    {
+      "path": "tools/个人工具中心/tests/test_icon_cards.py",
+      "size": 1801,
+      "sha256": "9c34511e55d71fa5f907d1e2e1c98348088f4dfebcd8b21d9cc52c51c7c6ef30"
+    },
+    {
+      "path": "tools/个人工具中心/tests/test_icon_preview.py",
+      "size": 1106,
+      "sha256": "bdb9a538de8a67b88c2feb78c11f5793fff6f807094abfa639914bd97f290e24"
+    },
+    {
+      "path": "tools/个人工具中心/tests/test_list_rows.py",
+      "size": 2208,
+      "sha256": "af2009cec5f7bd20d18b95db401b247e350cdf0cc67090389a2d66180c988cab"
+    },
+    {
+      "path": "tools/个人工具中心/tests/test_materials.py",
+      "size": 4007,
+      "sha256": "f2e146dd2ac03ee3f5ba2a814372edcb22fb2b5f8333ef4a2e7727c929424c6c"
+    },
+    {
+      "path": "tools/个人工具中心/tests/test_playful_tools.py",
+      "size": 4578,
+      "sha256": "af22c7def01080cc654e2321409349af1d8dcbcedc9eaf4568662c259d344d13"
+    },
+    {
+      "path": "tools/个人工具中心/tests/test_shortcut_windows.py",
+      "size": 2880,
+      "sha256": "a3362cb6bc5a1c961653da91ad5d2f520c75786b31621e3cbc7057147dcc590b"
+    },
+    {
+      "path": "tools/个人工具中心/tests/test_shortcuts.py",
+      "size": 6057,
+      "sha256": "9c07023a8ebfff766e074b9f5e28d41952ae22e9b27ffa7ff3a4c38791d96528"
+    },
+    {
+      "path": "tools/个人工具中心/tests/test_ui.py",
+      "size": 2784,
+      "sha256": "458eb1594430ce9e5dc3c24107600e5aeb1c92e82d6721509fdf09753e46110a"
+    },
+    {
+      "path": "tools/个人工具中心/tests/test_wheel.py",
+      "size": 2146,
+      "sha256": "85afbd07168be765ccb7cf801e2ace0bc19813123176e8e6b1927df79a4f24eb"
+    },
+    {
+      "path": "tools/个人工具中心/ui_preferences.py",
+      "size": 7748,
+      "sha256": "36ec7d95ef51f29c5ab02ad228ee98e2f4abde19907d9d16c1bb8e66cdb706c1"
+    },
+    {
+      "path": "tools/个人工具中心/wheel_model.py",
+      "size": 1551,
+      "sha256": "cfdef45c8297117f0ef3306cb47423095484fa0ef23c11726704febd5d175381"
+    },
+    {
+      "path": "tools/个人工具中心/wheel_steam.py",
+      "size": 1344,
+      "sha256": "f93c77302e5fa1a5be81433df943946680ffa8418530e33601886cdc53d85ce5"
+    },
+    {
+      "path": "tools/个人工具中心/wheel_ui.py",
+      "size": 11492,
+      "sha256": "193cdb14db6de8bb37464fcf12fd97d37425820cc73e7a23f2a894d9f62ca70d"
+    },
+    {
+      "path": "tools/个人工具中心/win_icons.py",
+      "size": 3568,
+      "sha256": "eaffe2c49d60a10d5f6ac45b9fec18a90b48decf511435e5d5882eadf3583f0c"
+    },
+    {
+      "path": "tools/个人工具中心新版/app.py",
+      "size": 4567,
+      "sha256": "199997dc1b081b08052e5240a61e34d0f760dc42b5f9e5e837a3a7e4d19b40c3"
+    },
+    {
+      "path": "tools/个人工具中心新版/backend.py",
+      "size": 22754,
+      "sha256": "b8ead3ae85c3fb13c30016c64ee666a3abb7e1e95e0d4dc582edd45ca5bad23c"
+    },
+    {
+      "path": "tools/个人工具中心新版/bridge_boundary.py",
+      "size": 987,
+      "sha256": "e61abb2d126319a21def8b2adb67509fde44c0077645f84ecef45efd812f4c1d"
+    },
+    {
+      "path": "tools/个人工具中心新版/focus.py",
+      "size": 69,
+      "sha256": "c17695a41bb2ac0235fb2bcc9b71f14009ca43ed727af2f8bc9299de5374a253"
+    },
+    {
+      "path": "tools/个人工具中心新版/frontend/dist/assets/app.css",
+      "size": 69435,
+      "sha256": "c215e4f7fd10eab7ab5a288e320a5acbaa7e172572e11265e27d1d2610f35fea"
+    },
+    {
+      "path": "tools/个人工具中心新版/frontend/dist/assets/app.js",
+      "size": 362784,
+      "sha256": "69cda23d0044bc238b980e16b85f16165d11d7de0ed49f6cedabc4ebb15bf64f"
+    },
+    {
+      "path": "tools/个人工具中心新版/frontend/dist/index.html",
+      "size": 1494,
+      "sha256": "7018b33548f04308a8509f5f1b0d21fc5451fde8993cb9a9a718dcc6a23f3e70"
+    },
+    {
+      "path": "tools/个人工具中心新版/frontend/package-lock.json",
+      "size": 14320,
+      "sha256": "e5516b086ad298d360d92b30614ddb59bf25aea9e5ec192e2c7b7f8b2b1c3072"
+    },
+    {
+      "path": "tools/个人工具中心新版/frontend/package.json",
+      "size": 709,
+      "sha256": "2aefe623f8ea3a624c062c6d7e1c783ad750b6ae948f9cf54785e87501e4346c"
+    },
+    {
+      "path": "tools/个人工具中心新版/frontend/pnpm-lock.yaml",
+      "size": 9840,
+      "sha256": "e311630f4bc4c761ae422837dd2ae04514024befb79acb963fa989959c178e93"
+    },
+    {
+      "path": "tools/个人工具中心新版/frontend/pnpm-workspace.yaml",
+      "size": 30,
+      "sha256": "a8dbaf09fa36dd9d340ed79ee1b110240dd5dea0f269582f26a1136a2e745bbd"
+    },
+    {
+      "path": "tools/个人工具中心新版/frontend/scripts/build.mjs",
+      "size": 2135,
+      "sha256": "ab98f7b5e9f8d0a487f931e6154d029cce2623dec2587a1d7c5483d7ecd4485b"
+    },
+    {
+      "path": "tools/个人工具中心新版/frontend/scripts/esbuild-binary.mjs",
+      "size": 1836,
+      "sha256": "5641749fa6b0564a45dc3a139048ba101a154ddeae9bfb238b515a18e119261d"
+    },
+    {
+      "path": "tools/个人工具中心新版/frontend/scripts/serve.mjs",
+      "size": 1752,
+      "sha256": "b9d6b7e3a78a45929511b6ba7a3fbecae5c94e281999ccf9e5305505912edada"
+    },
+    {
+      "path": "tools/个人工具中心新版/frontend/src/App.jsx",
+      "size": 8571,
+      "sha256": "7b6153d2ec5ddf88ab4a2c01e18448e5d130e0bbd167d3d8d1e242c9129fdd24"
+    },
+    {
+      "path": "tools/个人工具中心新版/frontend/src/components/AddGameDialog.jsx",
+      "size": 4265,
+      "sha256": "b609cf670045f3bb1311a89d780cc7c0ab687fcd1f070c3442c67aad7ced5de6"
+    },
+    {
+      "path": "tools/个人工具中心新版/frontend/src/components/Brand.jsx",
+      "size": 986,
+      "sha256": "34c9585fb30bda2d455774641d63ddfebe89645b3f3e41e30adc1a049df23796"
+    },
+    {
+      "path": "tools/个人工具中心新版/frontend/src/components/ConnectionScreen.jsx",
+      "size": 3152,
+      "sha256": "3193c25515ee52232e541aabb9033dea58de523e5c60bfb1d1e40760ed371197"
+    },
+    {
+      "path": "tools/个人工具中心新版/frontend/src/components/ErrorBoundary.jsx",
+      "size": 1167,
+      "sha256": "fba1de3cd771730376408faf2a3f093f1213682ba69d2e74cd5013174823ff22"
+    },
+    {
+      "path": "tools/个人工具中心新版/frontend/src/components/GameDetailDialog.jsx",
+      "size": 15062,
+      "sha256": "1cd30eb49497801517cbb5d694cdba94c70c21e7b3933726cc17053a1a301c83"
+    },
+    {
+      "path": "tools/个人工具中心新版/frontend/src/components/JobCard.jsx",
+      "size": 3518,
+      "sha256": "728ace40f90b226940d5e04b9cf839febc183bc1647f563a947402086385478b"
+    },
+    {
+      "path": "tools/个人工具中心新版/frontend/src/components/Modal.jsx",
+      "size": 4564,
+      "sha256": "6b411a2c731045579bcd7ec512d9ce51ba48efc19f646a7234f394614acc5f89"
+    },
+    {
+      "path": "tools/个人工具中心新版/frontend/src/components/PetButton.jsx",
+      "size": 1405,
+      "sha256": "461cd97e221fe215e2deb6d6512d915010b76ae30a027ebfe22a9db710f1782a"
+    },
+    {
+      "path": "tools/个人工具中心新版/frontend/src/components/Sidebar.jsx",
+      "size": 2921,
+      "sha256": "27eac87c593db0ff5f9d57617f07d1f4ede2f2ccf0bfd08399d0154391d21853"
+    },
+    {
+      "path": "tools/个人工具中心新版/frontend/src/components/Toasts.jsx",
+      "size": 2986,
+      "sha256": "0dba480590b9c403bde7f4f92a2db4c2e000fd4193fe54d03100cedbdf2035f1"
+    },
+    {
+      "path": "tools/个人工具中心新版/frontend/src/components/ToolIcon.jsx",
+      "size": 2444,
+      "sha256": "617465953aa12a48930d2bb0d4787abd4458478da93637fc756a57511ad0fad4"
+    },
+    {
+      "path": "tools/个人工具中心新版/frontend/src/components/TopBar.jsx",
+      "size": 8911,
+      "sha256": "2220d519b95859029ba149ba841172ff11eaaad18916733d3ad209687a7d6316"
+    },
+    {
+      "path": "tools/个人工具中心新版/frontend/src/components/ui.jsx",
+      "size": 4959,
+      "sha256": "885545fb5f932e1f2934e0a42172cb1444a0d65c93245fafdc66cba3fb99d52c"
+    },
+    {
+      "path": "tools/个人工具中心新版/frontend/src/finish.css",
+      "size": 1561,
+      "sha256": "ef5d2f2e46d6859dd966092c5575d4c2f6a472dae493509262cf145af9605d5f"
+    },
+    {
+      "path": "tools/个人工具中心新版/frontend/src/hooks/useToolCenter.js",
+      "size": 11246,
+      "sha256": "4166b85d6fb2722f8b42af9143adc7e3789bdd4f0eb1ab5898077f32014eab0b"
+    },
+    {
+      "path": "tools/个人工具中心新版/frontend/src/index.html",
+      "size": 1494,
+      "sha256": "7018b33548f04308a8509f5f1b0d21fc5451fde8993cb9a9a718dcc6a23f3e70"
+    },
+    {
+      "path": "tools/个人工具中心新版/frontend/src/lib/bridge.js",
+      "size": 2713,
+      "sha256": "b6385183c2fe0cf6dc56fb2ba24c758fe589fd1fd72de2d9d7cb82f06be64455"
+    },
+    {
+      "path": "tools/个人工具中心新版/frontend/src/lib/format.js",
+      "size": 3651,
+      "sha256": "b3cfef515cdd04bacc1ce83672ea9a5ff79cd20b4d970cfc23a97e7ad4d09bab"
+    },
+    {
+      "path": "tools/个人工具中心新版/frontend/src/lib/gameIcon.js",
+      "size": 533,
+      "sha256": "49e94a84f6a9d9ed45d5c282d21145e62877bacc53c6ae611eb3a6922669a279"
+    },
+    {
+      "path": "tools/个人工具中心新版/frontend/src/lib/jobs.js",
+      "size": 1677,
+      "sha256": "02e9440a24a224c6da70340f3a8c14621f78d2df3c10783ba1f2791cac8ffde7"
+    },
+    {
+      "path": "tools/个人工具中心新版/frontend/src/lib/pack.js",
+      "size": 2482,
+      "sha256": "89e04c51bc548f78e141a616d619487040cccf1bf92221d3348c6730eb080a76"
+    },
+    {
+      "path": "tools/个人工具中心新版/frontend/src/lib/recent.js",
+      "size": 692,
+      "sha256": "92890c6a444e5f7226e9b0700965e4043d09421ed5894ce47ab1eb6164b3d12b"
+    },
+    {
+      "path": "tools/个人工具中心新版/frontend/src/lib/search.js",
+      "size": 6838,
+      "sha256": "b54721abc6fdab77adf703728689b44041e0c7c72494b9a39cba297016745713"
+    },
+    {
+      "path": "tools/个人工具中心新版/frontend/src/main.jsx",
+      "size": 339,
+      "sha256": "124104c3208b9267bb4bbbcaf27735b4e2d56684b449d25ffef8e701669606f8"
+    },
+    {
+      "path": "tools/个人工具中心新版/frontend/src/pages/Games.jsx",
+      "size": 12334,
+      "sha256": "f92c6200b4e65c240176f02bab01175c1f0effd9671008e7f7bde31a588bbace"
+    },
+    {
+      "path": "tools/个人工具中心新版/frontend/src/pages/Overview.jsx",
+      "size": 21473,
+      "sha256": "17c7361f3cdfb235d227882d67d40f43e32132ce86fca0e88a22029ab1c80cd2"
+    },
+    {
+      "path": "tools/个人工具中心新版/frontend/src/pages/Pack.jsx",
+      "size": 20590,
+      "sha256": "5c271ca554a1c0b8fb9a459c8066a6159a0eaea3a8fbc81067b52972aa4e7dd8"
+    },
+    {
+      "path": "tools/个人工具中心新版/frontend/src/pages/Settings.jsx",
+      "size": 11975,
+      "sha256": "4996d302172d30810a879edfe244917b43ac194a6b7b16adbdf5bd0505de1d31"
+    },
+    {
+      "path": "tools/个人工具中心新版/frontend/src/pages/Wheel.jsx",
+      "size": 25525,
+      "sha256": "8b7454adde737651c3db54d28a30ee9b6c6c1bb5c29060c82a7522bb014e8474"
+    },
+    {
+      "path": "tools/个人工具中心新版/frontend/src/styles.css",
+      "size": 90611,
+      "sha256": "cb6827c145ed4126c592d661fa21e406a6fc6cce1a3ff5195d08f13bef3d7f08"
+    },
+    {
+      "path": "tools/个人工具中心新版/frontend/test/bridge.test.js",
+      "size": 3709,
+      "sha256": "8f7e775ddadc5567debf5728cfd72c4e5c748cc83cf59d1dc5289751f8530d9e"
+    },
+    {
+      "path": "tools/个人工具中心新版/frontend/test/fixtures/bootstrap.json",
+      "size": 5497,
+      "sha256": "b52e848f3df64e0cb285de4a6e7c1c513733077cc759e16ad7e46ef45aee8890"
+    },
+    {
+      "path": "tools/个人工具中心新版/frontend/test/format.test.js",
+      "size": 2478,
+      "sha256": "33339f35fcab7130268e10b0d57b7b75954a47df999d481ee3ac2c5763963b9d"
+    },
+    {
+      "path": "tools/个人工具中心新版/frontend/test/gameIcon.test.js",
+      "size": 843,
+      "sha256": "66fa4774ddda81f79ceafc5ab6b4c87ea9c402bcb4d461820a6a28f5a57b3e9c"
+    },
+    {
+      "path": "tools/个人工具中心新版/frontend/test/harness/serve.mjs",
+      "size": 10131,
+      "sha256": "3e715735bf13c7441246adfa8b1edc164cfb20347eb711aca0646c5c360b49e1"
+    },
+    {
+      "path": "tools/个人工具中心新版/frontend/test/jobs.test.js",
+      "size": 2949,
+      "sha256": "d62baf65c659728ba2c51c81578e60a862916e11cc7ebd9f3999139050fd8219"
+    },
+    {
+      "path": "tools/个人工具中心新版/frontend/test/pack.test.js",
+      "size": 3387,
+      "sha256": "150ad6f2cce18fa6f0ac7389a6c53fcf16da446541165bc840336776249042bf"
+    },
+    {
+      "path": "tools/个人工具中心新版/frontend/test/recent.test.js",
+      "size": 960,
+      "sha256": "68f5e4c5fce22161b9f10d14e00fd63698286fc611351ebcb2af327295b0817a"
+    },
+    {
+      "path": "tools/个人工具中心新版/frontend/test/search.test.js",
+      "size": 3834,
+      "sha256": "21acae03146554341c55bde81d428bb8e4fccacdd2ee512e28db52c75e85e7e6"
+    },
+    {
+      "path": "tools/个人工具中心新版/icons.py",
+      "size": 69,
+      "sha256": "a0a6b3ebf801c6281956271e2b8a9be795e7dd4912655571857495dc5b0e41e9"
+    },
+    {
+      "path": "tools/个人工具中心新版/integrated_windows.py",
+      "size": 1320,
+      "sha256": "078b4b35ea72bb53515ccd01240ad5bd040ae9e4c63a065398de1c83f6dd0d0a"
+    },
+    {
+      "path": "tools/个人工具中心新版/launch.pyw",
+      "size": 147,
+      "sha256": "96653a45d3e88b955df779e36e7fb2921f05b1c80fe159c9500d4ba29dde3b82"
+    },
+    {
+      "path": "tools/个人工具中心新版/legacy_runner.py",
+      "size": 1683,
+      "sha256": "fb4ba38c114176344bd3bdfdb08f677fc831e96673b789fde70b748a3aa9e1f6"
+    },
+    {
+      "path": "tools/个人工具中心新版/licenses/esbuild-LICENSE.md",
+      "size": 1069,
+      "sha256": "b40ec5baec7bb34fa5b1c09521fa3cd52d5fad7adafed74932a2010d3612a681"
+    },
+    {
+      "path": "tools/个人工具中心新版/licenses/lucide-react-LICENSE",
+      "size": 3208,
+      "sha256": "b495047bd93a9b06913511076f504daba17d5bbeb3e0650f3bb53a4220329c57"
+    },
+    {
+      "path": "tools/个人工具中心新版/licenses/react-dom-LICENSE",
+      "size": 1088,
+      "sha256": "da6d3703ed11cbe42bd212c725957c98da23cbff1998c05fa4b3d976d1a58e93"
+    },
+    {
+      "path": "tools/个人工具中心新版/licenses/react-LICENSE",
+      "size": 1088,
+      "sha256": "da6d3703ed11cbe42bd212c725957c98da23cbff1998c05fa4b3d976d1a58e93"
+    },
+    {
+      "path": "tools/个人工具中心新版/local_icons.py",
+      "size": 1223,
+      "sha256": "2382a4d058fccc49fcaf41687ad129f6d0f9a62ea52437da93bc4ea647ad9cb4"
+    },
+    {
+      "path": "tools/个人工具中心新版/pet_launcher.py",
+      "size": 2472,
+      "sha256": "2feed02f83c523480a686f899cac01baeeee19574d81bc983f141e727adc25ee"
+    },
+    {
+      "path": "tools/个人工具中心新版/singleton.py",
+      "size": 3169,
+      "sha256": "573710f0676133fba522e97f9fe979c43b5e2c495724c2f7be9493d72047afe1"
+    },
+    {
+      "path": "tools/个人工具中心新版/store.py",
+      "size": 1829,
+      "sha256": "d031bb31a9e6c2ffa5d494b925464a641dae290d61564aa18a16d942cefe008b"
+    },
+    {
+      "path": "tools/个人工具中心新版/tests/test_agent_entry.py",
+      "size": 869,
+      "sha256": "ddc764b94c85adf706286f9a6e25c39ad650836fe2dcb09de02d77e0e2baafb3"
+    },
+    {
+      "path": "tools/个人工具中心新版/tests/test_backend.py",
+      "size": 8048,
+      "sha256": "dfb81bb276163a5a73ba23a5a366f6c421daee7dd26388259e5b1603ea39672c"
+    },
+    {
+      "path": "tools/个人工具中心新版/tests/test_boundary.py",
+      "size": 1710,
+      "sha256": "24133ffbd70eb6589daf57b965954e4178e8f6156cc9339446c5a5b3b6f83368"
+    },
+    {
+      "path": "tools/个人工具中心新版/tests/test_integrated_windows.py",
+      "size": 1922,
+      "sha256": "605730114b1248add728bc218c2d0cb4d55ae2add096f8a767485e51f209586f"
+    },
+    {
+      "path": "tools/个人工具中心新版/tests/test_legacy_display.py",
+      "size": 1652,
+      "sha256": "b27e245bd346ca4f2f7ab487fc3333176ee8472e1941d671dc29aae8cf29bdd4"
+    },
+    {
+      "path": "tools/个人工具中心新版/tests/test_library_conflict.py",
+      "size": 1461,
+      "sha256": "cd79fa076960a45df4e9fb9e4517c821ef2d1e920359d0ab5aeb42e28d8dc827"
+    },
+    {
+      "path": "tools/个人工具中心新版/tests/test_local_icons.py",
+      "size": 894,
+      "sha256": "3e815be6cb0bcd61dd36e841ef502159de90d1924185ced24260592e7ddcd1c2"
+    },
+    {
+      "path": "tools/个人工具中心新版/tests/test_pet_launcher.py",
+      "size": 1417,
+      "sha256": "d461afba05e5af4def7d41aef69d4849f4722a81e6b89e090b61a6b3e1c8ec9e"
+    },
+    {
+      "path": "tools/个人工具中心新版/tests/test_singleton.py",
+      "size": 1870,
+      "sha256": "eead0a0d8917d4c3579712ce3cb91e0fd176464593d7c747bd2a68ab2d91c72a"
+    },
+    {
+      "path": "tools/宝可梦小镇新版/app.py",
+      "size": 4920,
+      "sha256": "a3689542ea8990d9aeb48aec3a5b3fa2f48d94720feb4d1fa4635432dedb23c3"
+    },
+    {
+      "path": "tools/宝可梦小镇新版/bridge_boundary.py",
+      "size": 987,
+      "sha256": "e61abb2d126319a21def8b2adb67509fde44c0077645f84ecef45efd812f4c1d"
+    },
+    {
+      "path": "tools/宝可梦小镇新版/frontend/dist/assets/app.css",
+      "size": 32122,
+      "sha256": "2ea0d37ef9341249ea2285cba70712c75b75246640d8c7229c6c805759fb12fe"
+    },
+    {
+      "path": "tools/宝可梦小镇新版/frontend/dist/assets/app.js",
+      "size": 297493,
+      "sha256": "dc5173c3b576a6e63998391ac0b1a980a52b90314e4601c42c60ef5926e2a26d"
+    },
+    {
+      "path": "tools/宝可梦小镇新版/frontend/dist/index.html",
+      "size": 1549,
+      "sha256": "b340645f12064cdd763d2ecad837fb529c6afd7256464c8af10d9f9573ebd8e0"
+    },
+    {
+      "path": "tools/宝可梦小镇新版/frontend/package-lock.json",
+      "size": 14300,
+      "sha256": "05f3325270009f9ad68e375269834c44648831702295264f28f668a702291c6f"
+    },
+    {
+      "path": "tools/宝可梦小镇新版/frontend/package.json",
+      "size": 692,
+      "sha256": "fda9cf075899f75eb4bde636ba5f5e36e4182f23f3b9c21a345f5472c7f8b334"
+    },
+    {
+      "path": "tools/宝可梦小镇新版/frontend/pnpm-lock.yaml",
+      "size": 9840,
+      "sha256": "e311630f4bc4c761ae422837dd2ae04514024befb79acb963fa989959c178e93"
+    },
+    {
+      "path": "tools/宝可梦小镇新版/frontend/pnpm-workspace.yaml",
+      "size": 30,
+      "sha256": "a8dbaf09fa36dd9d340ed79ee1b110240dd5dea0f269582f26a1136a2e745bbd"
+    },
+    {
+      "path": "tools/宝可梦小镇新版/frontend/scripts/build.mjs",
+      "size": 2133,
+      "sha256": "45bdfed05270b70e9b1e4038b3f693a8c3db0527f3e893cab0495ffd0c2f0653"
+    },
+    {
+      "path": "tools/宝可梦小镇新版/frontend/scripts/esbuild-binary.mjs",
+      "size": 1575,
+      "sha256": "c6d8565036a88bad4fde6f17642c7d5d1b45ba7e08171ff578fb05c321f51998"
+    },
+    {
+      "path": "tools/宝可梦小镇新版/frontend/src/App.jsx",
+      "size": 22906,
+      "sha256": "afaeb5c58f1a882486ba20b7d61043e444cbc54207f64f8378d17a6b2f2d0248"
+    },
+    {
+      "path": "tools/宝可梦小镇新版/frontend/src/components/ErrorBoundary.jsx",
+      "size": 1083,
+      "sha256": "a53aa9b69b30df9826df7d9015c016198128869e9ed51405f3e3a7c3fdefdeff"
+    },
+    {
+      "path": "tools/宝可梦小镇新版/frontend/src/components/FocusRoom.jsx",
+      "size": 4966,
+      "sha256": "0b57d53214c19039d02b23dbb8ca29f955702b4c8558cfadfe4bb5e9773a9323"
+    },
+    {
+      "path": "tools/宝可梦小镇新版/frontend/src/components/FocusView.jsx",
+      "size": 9495,
+      "sha256": "cd55f614e8a1908c2121f3dd0a781ce5f736ee2757d610d69a8356f3ba7406bb"
+    },
+    {
+      "path": "tools/宝可梦小镇新版/frontend/src/components/Furniture.jsx",
+      "size": 4343,
+      "sha256": "a4f6eff5e4475955d2a2c731e9f4c9603b24333f9beabde4210b9b914934ded2"
+    },
+    {
+      "path": "tools/宝可梦小镇新版/frontend/src/components/PartnerAvatar.jsx",
+      "size": 627,
+      "sha256": "d9c39cc3fdfad83a4a55fcfafbc699a7ebcef4151e3ca7a2c7d7b4e27b74ac69"
+    },
+    {
+      "path": "tools/宝可梦小镇新版/frontend/src/components/TownPanel.jsx",
+      "size": 17963,
+      "sha256": "9dda64e066ed43538e1a6f65c8acfa45477f2967c57aa9399bade6990679268b"
+    },
+    {
+      "path": "tools/宝可梦小镇新版/frontend/src/components/TownScene.jsx",
+      "size": 16425,
+      "sha256": "ee32fdef7df51e1e2084e4db7a574f75ec8257f294d8bee413295765d97eb707"
+    },
+    {
+      "path": "tools/宝可梦小镇新版/frontend/src/index.html",
+      "size": 1549,
+      "sha256": "b340645f12064cdd763d2ecad837fb529c6afd7256464c8af10d9f9573ebd8e0"
+    },
+    {
+      "path": "tools/宝可梦小镇新版/frontend/src/lib/bridge.js",
+      "size": 1737,
+      "sha256": "67f2b565e12b9ef3791488c657c17b32e4a41cdd77297b3006bd376ccf07dcbc"
+    },
+    {
+      "path": "tools/宝可梦小镇新版/frontend/src/lib/lifecycle.js",
+      "size": 229,
+      "sha256": "c3e529c9f40670fd80e31f72f80adf2f75a427e4997c14d104821afbd8540d09"
+    },
+    {
+      "path": "tools/宝可梦小镇新版/frontend/src/lib/town.js",
+      "size": 8385,
+      "sha256": "4fbf752f3cdd415b8a17b52d5d66e344047ddf2ccee5fe30109ac1a7eebd0bed"
+    },
+    {
+      "path": "tools/宝可梦小镇新版/frontend/src/main.jsx",
+      "size": 268,
+      "sha256": "1b7f9d79c66fbd20371f3d4f580b7be82f956e8bce5d2603d2bc9fbe057dde74"
+    },
+    {
+      "path": "tools/宝可梦小镇新版/frontend/src/styles.css",
+      "size": 40301,
+      "sha256": "c880f1d9f45adfe9060af225dff2c26411aace5c386f88e6f8be79a032af30b9"
+    },
+    {
+      "path": "tools/宝可梦小镇新版/frontend/test/lifecycle.test.js",
+      "size": 514,
+      "sha256": "16031c3041e131d1d6b4c0a4f8742ad516feaa5b0fc78c00db1bf4f49ffe5206"
+    },
+    {
+      "path": "tools/宝可梦小镇新版/frontend/test/town.test.js",
+      "size": 5666,
+      "sha256": "ef16a80a9fa1fcd697d9b65ec3bd379caa3c86121a88eb140db5ad952294caee"
+    },
+    {
+      "path": "tools/宝可梦小镇新版/launch.pyw",
+      "size": 147,
+      "sha256": "96653a45d3e88b955df779e36e7fb2921f05b1c80fe159c9500d4ba29dde3b82"
+    },
+    {
+      "path": "tools/宝可梦小镇新版/singleton.py",
+      "size": 3200,
+      "sha256": "50270629ec8689f0319e8fa85e13a53c5314afe0018e22a48ed9f0e4f99602bf"
+    },
+    {
+      "path": "tools/宝可梦小镇新版/tests/test_town_backend.py",
+      "size": 8039,
+      "sha256": "94a32aed01b2518a3a0e426ae5bcc4be8012244eedc616d5c2f6824fc61ecf4f"
+    },
+    {
+      "path": "tools/宝可梦小镇新版/town_backend.py",
+      "size": 7676,
+      "sha256": "a46f208a4e09687c10e6664e49a9128599cd6c0425716504d13a2cd86cb350bf"
+    },
+    {
+      "path": "tools/宝可梦小镇新版/town_focus.py",
+      "size": 1326,
+      "sha256": "2078125d347b2d225493d254a9abdf3eac14b22ff183f8109e62611ede7ccd01"
+    },
+    {
+      "path": "tools/宝可梦小镇新版/town_map.py",
+      "size": 1458,
+      "sha256": "65fcd7a46d32d52d9476e042035d4c72ee6b8f0431fa508e858577cfb9b32fbe"
+    },
+    {
+      "path": "tools/宝可梦小镇新版/town_rules.py",
+      "size": 5541,
+      "sha256": "4b4aafdcf1874506f72a55b09e347940f66aa21ea71496da64c5cb05fc98ae02"
+    },
+    {
+      "path": "tools/宝可梦小镇新版/town_state.py",
+      "size": 5569,
+      "sha256": "ff770bab9346ddbd21951388c10c3d7bb4358cb63a1014f4a6850944cd041e6d"
+    },
+    {
+      "path": "tools/宝可梦小镇新版/town_store.py",
+      "size": 2891,
+      "sha256": "a0bc9be50bd201bf65bcbf615e695fbe4852d295a4fa6753d2c09eaecf0f677f"
+    },
+    {
+      "path": "tools/桌面状态卡片/app.cpp",
+      "size": 19721,
+      "sha256": "dcb85e66d561d816aa6005682b4588dea2063b9ef12381a119f001fff726dbe0"
+    },
+    {
+      "path": "tools/桌面状态卡片/app.manifest",
+      "size": 767,
+      "sha256": "74f106e9c0f0a8c2ffb0be9f88c254d383372d88bbfedfda28eb6b315c9e1cc6"
+    },
+    {
+      "path": "tools/桌面状态卡片/app.rc",
+      "size": 21,
+      "sha256": "6bb2dec6cded996cca27eea0adebd0c21bcc662afe6ea2387d333eb0d766fe87"
+    },
+    {
+      "path": "tools/桌面状态卡片/build.cmd",
+      "size": 866,
+      "sha256": "713634000b08bb15852e46610c31989d9f094f6659ab8f5cdd8928026fdb02f4"
+    },
+    {
+      "path": "tools/桌面状态卡片/hotkey.cpp",
+      "size": 3878,
+      "sha256": "5809525de2cc55c2c118f1866525876bce5a622bf7f7ea8942d0a18e19bbbe85"
+    },
+    {
+      "path": "tools/桌面状态卡片/metrics.hpp",
+      "size": 485,
+      "sha256": "0d9f772ae622a003501dfdea702248488278e05ae0f8d4fad27dbd4fdaebf946"
+    },
+    {
+      "path": "tools/桌面状态卡片/test_metrics.cpp",
+      "size": 480,
+      "sha256": "2054add35ad1ee6df92e406520088cfa79be33e904f1b7c9b9eb22980a9e34d4"
+    },
+    {
+      "path": "tools/游戏管家/actions.py",
+      "size": 206,
+      "sha256": "a76fe3d349e9d7229f2a36291d293d6ee62ca4e1757ec95e5b64c16833b6fa5d"
+    },
+    {
+      "path": "tools/游戏管家/app.py",
+      "size": 25347,
+      "sha256": "0e251f748f100a4ad9b7e9b03834745c0550e84f19b84ddd586cfa7831d53da3"
+    },
+    {
+      "path": "tools/游戏管家/discovery.py",
+      "size": 1155,
+      "sha256": "d6acabaf182e5523533540e6d26def050e21beffa7ad8d8c1f2bfea8a8b37b4a"
+    },
+    {
+      "path": "tools/游戏管家/library.py",
+      "size": 4110,
+      "sha256": "4d6171b86d25801374ad9b208a40f327ab1cbf3c815f1c295ff122bf7a115a26"
+    },
+    {
+      "path": "tools/游戏管家/snapshots.py",
+      "size": 6115,
+      "sha256": "57312d318f5a50fa156bb2c0dc67cd3ba2570dca8860544d6c8939fc31b276f2"
+    },
+    {
+      "path": "tools/游戏管家/steam_library.py",
+      "size": 3553,
+      "sha256": "6ce035197256a4f75a58447dfb7f45335181d066212494ec8907f73533a72cb4"
+    },
+    {
+      "path": "tools/游戏管家/tests/test_app.py",
+      "size": 1022,
+      "sha256": "a8d5bed3b1c2c78e0e9ea38c049cde741a83b0b253e8d442ad6f3643e86a49d8"
+    },
+    {
+      "path": "tools/游戏管家/tests/test_core.py",
+      "size": 6049,
+      "sha256": "9e1c69f261aab72c9c97ca16ea00c00775dd87d8ae9fab9cfaecceacb99b6de2"
+    },
+    {
+      "path": "tools/游戏管家/tests/test_trainers.py",
+      "size": 4223,
+      "sha256": "04e7e158996a294fec8ddf964f9c110a0609c9a5662f053466ba19eb844c5c92"
+    },
+    {
+      "path": "tools/游戏管家/tests/test_ui.py",
+      "size": 3264,
+      "sha256": "41da623e371935af27ca75d09ea9c9e2a5759a07764bf22d025499e967cd9810"
+    },
+    {
+      "path": "tools/游戏管家/trainers.py",
+      "size": 4381,
+      "sha256": "b32fd4abfc996ac95c1e71dc0fa350cf8d530f18524cf7b07da89a771c5883e8"
+    },
+    {
+      "path": "tools/游戏管家/ui_preferences.py",
+      "size": 7216,
+      "sha256": "efc1a5339fbdbd8e9df5742bbee86fa3ea364192c930971db9a3c3beeb4da5b8"
+    }
+  ]
+}
